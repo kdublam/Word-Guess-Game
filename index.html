@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word-Guess-Game</title>
+</head>
+
+<body>
+    <div>
+        <h1>Press any key to start!</h1>
+        <h3>Wins: </h3>
+        <h3 id="wins_text"> </h3>
+        <h3>Current Word</h3>
+        <h3 id="current_word"> </h3>
+        <h3>Number of guesses remaining: </h3>
+        <h3 id="guess_text"> </h3>
+        <h3>Letters already guessed: </h3>
+        <h3 id="letters_guessed"> </h3>
+    </div>
+
+    <script type="text/javascript">
+        // Array of words that are included in game
+        var words = ["stormtrooper", "chewbecca", "lightsaber", "tatooine", "skywalker", "force", "yoda"]
+        //Chooses random word from the array
+        var randomWord = words[Math.floor(Math.random() * words.length)];
+        //variables to write text to html
+        var numWin = document.getElementById("wins_text");
+        var currentWord = document.getElementById("current_word");
+        var guessLeft = document.getElementById("guess_text");
+        var wrongGuess = document.getElementById("letters_guessed");
+
+        guessLeft.textContent = 12;
+
+
+        //Display the word in play with blank spaces
+        var blankSpace = randomWord.replace(/./g, "_ ");
+        currentWord.textContent = blankSpace;
+
+        console.log(randomWord)
+
+
+        var userGuess;
+        // This function is run whenever the user presses a key.
+        document.onkeyup = function (event) {
+
+            // Determines which key was pressed.
+            var userGuess = event.key;
+
+
+            // 
+            if (randomWord.indexOf(userGuess) > -1) {
+                console.log("true");
+            }
+            else{
+                wrongGuess.innerHTML += userGuess + " ";
+                guessLeft--;
+                guessLeft.textContent = guessLeft;
+            }
+        }
+
+        
+
+
+
+
+        // console.log(blankSpace);
+
+        // for (i = 0; i < randomWord.length; i++) {
+
+        //     }
+
+    // document.onkeyup = function (event) {
+    //   var userinput = event.key
+    //   if (userinput === "h") {
+    //     car.honk();
+    //   }
+    //   else if (userinput === "d") {
+    //     car.driveToWork();
+    //     info();
+    //   }
+    //   else if (userinput === "w") {
+    //     car.driveAroundWorld();
+    //     info();
+    //   }
+    //   else if (userinput === "t") {
+    //     car.getTuneUp();
+    //     info();
+    //   }
+
+    // }
+
+    </script>
+</body>
+
+</html>
