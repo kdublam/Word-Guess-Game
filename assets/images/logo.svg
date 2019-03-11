@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-
-    <title>Word-Guess-Game</title>
-</head>
-
-<body>
-
-    <audio preload="auto" control>
-        <source src="assets/audio/intro.mp3" type="audio/mpeg">
-    </audio>
-
-    <section class="intro">
-        A long time ago, in a galaxy far,<br> far away....
-    </section>
-
-    <section class="logo">
-        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" width="693.615px" height="419.375px" viewBox="0 0 693.615 419.375"
             enable-background="new 0 0 693.615 419.375" xml:space="preserve">
             <g id="Layer_2">
@@ -114,34 +88,3 @@
                 </g>
             </g>
         </svg>
-    </section>
-
-    <!-- Change the text to your liking -->
-    <div id="board">
-        <div id="content">
-            <p id="title">Hangman Game</p>
-            <p id="subtitle">Guess the Word</p>
-            <br>
-            <!-- And make it cheesy ! -->
-            <p>You have 12 turns to guess the word. Succeed or prepare to beg for mercy from the Dark Lord...</p>
-        </div>
-    </div>
-
-
-    <div class="gameboard">
-        <h1>Press any key to start!</h1>
-        <h3>Wins: </h3>
-        <h3 id="wins_text"> </h3>
-        <h3>Current Word</h3>
-        <h3 id="current_word"> </h3>
-        <h3>Number of guesses remaining: </h3>
-        <h3 id="guess_text"> </h3>
-        <h3>Letters already guessed: </h3>
-        <h3 id="letters_guessed"> </h3>
-    </div>
-
-    <script src="assets/javascript/game.js" type="text/javascript"></script>
-
-</body>
-
-</html>
