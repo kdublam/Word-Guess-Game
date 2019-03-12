@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 
-    <title>Word-Guess-Game</title>
+    <title>Star Wars Word Guessing Game</title>
 </head>
 
 <body>
@@ -19,10 +19,13 @@
         <source src="assets/audio/intro.mp3" type="audio/mpeg">
     </audio>
 
+
+    <!-- Intro -->
     <section class="intro">
         A long time ago, in a galaxy far,<br> far away....
     </section>
 
+    <!-- SVG for the Star Wars logo -->
     <section class="logo">
         <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" width="693.615px" height="419.375px" viewBox="0 0 693.615 419.375"
@@ -116,28 +119,41 @@
         </svg>
     </section>
 
-    <!-- Change the text to your liking -->
+    <!-- Scrolling Board -->
     <div id="board">
         <div id="content">
             <p id="title">Hangman Game</p>
             <p id="subtitle">Guess the Word</p>
             <br>
-            <!-- And make it cheesy ! -->
-            <p>You have 12 turns to guess the word. Succeed or prepare to beg for mercy from the Dark Lord...</p>
+            <!-- Scrolling Instructions ! -->
+            <p>The Rebels have been captured by the Imperials. To free them, you must solve the following word puzzle. You have 12 trys to complete each puzzle. Fail and you will have to beg for mercy from the Dark Lord...</p>
         </div>
     </div>
 
+    <nav class="titlelogo navbar">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">>
+            <a class="navbar-brand" href="#">
+              <img src="assets/images/title.png" class="d-inline-block align-top" alt="Title Logo">
+            </a>
+            </div>
+            <div class="col-lg-8 col-md-6 col-sm-12">
+            </div>
+            </div>
+          </nav>
 
+    <!-- Game board -->
     <div class="gameboard">
-        <h1>Press any key to start!</h1>
-        <h3>Wins: </h3>
-        <h3 id="wins_text"> </h3>
-        <h3>Current Word</h3>
-        <h3 id="current_word"> </h3>
-        <h3>Number of guesses remaining: </h3>
-        <h3 id="guess_text"> </h3>
-        <h3>Letters already guessed: </h3>
-        <h3 id="letters_guessed"> </h3>
+        <P id="start_text"></p>
+        <!-- <p>Wins: </p> -->
+        <p id="wins_text"></p>
+        <p id="lost_text"></p>
+        <p>Current Word: </p>
+        <p id="current_word"> </p>
+        <p>Number of guesses remaining: </p>
+        <p id="guess_text"> </p>
+        <p>Letters already guessed: </p>
+        <p id="letters_guessed"> </p>
     </div>
 
     <script src="assets/javascript/game.js" type="text/javascript"></script>
