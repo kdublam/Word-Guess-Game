@@ -1,14 +1,14 @@
 // Sets the number of stars we wish to display
-const numStars = 100;
+const numStars = 250;
 
 // For every star we want to display
-for (let i = 0; i < numStars; i++) {
-    let star = document.createElement("div");
+for (var i = 0; i < numStars; i++) {
+    var star = document.createElement("div");
     star.className = "star";
     var xy = getRandomPosition();
     star.style.top = xy[0] + 'px';
     star.style.left = xy[1] + 'px';
-    document.body.append(star);
+    document.body.appendChild(star);
 }
 
 // Gets random x, y values based on the size of the container
@@ -111,10 +111,58 @@ function printSpace() {
     currentWord.textContent = blankWord.join(" ");
 }
 
-console.log(blankSpace());
+// console.log(blankSpace());
+
+// Call the functions to print spaces on screen//
+blankSpace();
 printSpace();
 
 ///////////////////////////////////////////////
+
+var winMusic = document.getElementById("winmusic");
+var loseMusic = document.getElementById("losemusic");
+
+var introMusic = document.getElementById("intro");
+var correctMusic = document.getElementById("correct");
+var wrongMusic = document.getElementById("wrong");
+var luke = document.getElementById("luke");
+var chewy = document.getElementById("chewy");
+var jarjar = document.getElementById("jarjar");
+var force = document.getElementById("force");
+
+function introAud() {
+    introMusic.play();
+}
+function introPause() {
+    introMusic.pause();
+}
+
+function winAud() {
+    winMusic.play();
+}
+function loseAud() {
+    loseMusic.play();
+}
+
+function correctAud() {
+    correctMusic.play();
+}
+function wrongAud() {
+    wrongMusic.play();
+}
+function lukeVoice() {
+    luke.play();
+}
+function chewyVoice() {
+    chewy.play();
+}
+function jarjarVoice() {
+    jarjar.play();
+}
+function hanVoice() {
+    force.play();
+}
+
 
 
 // guessLeft.textContent = numGuess;
@@ -139,12 +187,14 @@ document.onkeyup = function (event) {
                     // if (numGuess > 0 && randomArr === blankWord.join('')) {
                     //     alert("You Win!");
                     // }
+                    correctAud()
                     printSpace();
                 }
             }
             if (randomArr.toString() === blankWord.toString()) {
                 wins++;
                 // alert("You Win!");
+                hanVoice();
                 printWins();
                 // randomArr = [];
                 // blankWord = [];
@@ -155,8 +205,10 @@ document.onkeyup = function (event) {
                 printSpace();
                 wrongGuess.textContent = "";
                 if (wins === 6) {
+                    winAud();
                     alert("You Win! You have freed the rebels!");
                     wins = 0;
+                    losses = 0;
                     printWins();
                 }
 
@@ -164,10 +216,12 @@ document.onkeyup = function (event) {
         }
         else {
             wrongGuess.textContent += userGuess + " ";
+            wrongAud();
             numGuess--;
             guessLeft.textContent = numGuess;
             if (numGuess === 0) {
                 // alert("You Lose!");
+                jarjarVoice();
                 losses++;
                 printLosses();
                 start();
@@ -177,8 +231,10 @@ document.onkeyup = function (event) {
                 printSpace();
                 wrongGuess.textContent = "";
                 if (losses === 3) {
+                    loseAud();
                     alert("You Lose! The rebels will not be forgetten...");
                     losses = 0;
+                    wins = 0;
                     printLosses();
                 }
             }
@@ -189,9 +245,11 @@ document.onkeyup = function (event) {
         // return blankSpace;
     }
     else if (event.which <= 90 && event.which >= 65) {
+        chewyVoice();
         alert("You've tried this letter already");
     }
     else if (event.which >= 48 && event.which <= 57) {
+        lukeVoice();
         alert("Please only chooes from A-Z");
     }
 

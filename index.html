@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/title.png">
 
 
     <title>Star Wars Word Guessing Game</title>
@@ -15,9 +16,41 @@
 
 <body>
 
-    <audio preload="auto" control>
+    <audio id="intro">
         <source src="assets/audio/intro.mp3" type="audio/mpeg">
     </audio>
+
+    <audio id="winmusic">
+        <source src="assets/audio/cantina.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="losemusic">
+        <source src="assets/audio/imperial.mp3" type="audio/mpeg">
+    </audio>
+  
+    <audio id="correct">
+        <source src="assets/audio/saber.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrong">
+        <source src="assets/audio/blaster.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="luke">
+        <source src="assets/audio/luke.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="chewy">
+        <source src="assets/audio/chewy.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="jarjar">
+        <source src="assets/audio/jarjar.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="force">
+        <source src="assets/audio/force.mp3" type="audio/mpeg">
+    </audio>
+
+
 
 
     <!-- Intro -->
@@ -126,21 +159,23 @@
             <p id="subtitle">Guess the Word</p>
             <br>
             <!-- Scrolling Instructions ! -->
-            <p>The Rebels have been captured by the Imperials. To free them, you must solve the following word puzzle. You have 12 trys to complete each puzzle. Fail and you will have to beg for mercy from the Dark Lord...</p>
+            <p>The Rebels have been captured by the Imperials. To free them, you must solve the following word puzzle.
+                You have 12 trys to complete each puzzle. Fail and you will have to beg for mercy from the Dark Lord...
+            </p>
         </div>
     </div>
 
     <nav class="titlelogo navbar">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12">>
-            <a class="navbar-brand" href="#">
-              <img src="assets/images/title.png" class="d-inline-block align-top" alt="Title Logo">
-            </a>
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/title.png" class="d-inline-block align-top" alt="Title Logo">
+                </a>
             </div>
             <div class="col-lg-8 col-md-6 col-sm-12">
             </div>
-            </div>
-          </nav>
+        </div>
+    </nav>
 
     <!-- Game board -->
     <div class="gameboard">
@@ -155,6 +190,20 @@
         <p>Letters already guessed: </p>
         <p id="letters_guessed"> </p>
     </div>
+
+
+    <!-- button for Audio -->
+
+    <nav id="foot" class="navbar fixed-bottom">
+        <div id="copyright" class="navbar-brand">
+
+            <button onclick="introAud()" type="button" class="btn btn-outline-warning">Push for Music</button>
+
+            <button onclick="introPause()" type="button" class="btn btn-outline-warning">Pause</button>
+
+
+        </div>
+    </nav>
 
     <script src="assets/javascript/game.js" type="text/javascript"></script>
 

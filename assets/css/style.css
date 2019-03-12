@@ -175,3 +175,12 @@ p {
         opacity: 1;
     }
 }
+
+#foot {
+    /* background-color: #666666;
+    color: #ffffff;
+    text-align: center; */
+    display: inline-block;
+    /* border-top: 8px solid #4aaaa5;
+    font-size: 12px; */
+}
