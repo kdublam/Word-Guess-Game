@@ -184,3 +184,88 @@ p {
     /* border-top: 8px solid #4aaaa5;
     font-size: 12px; */
 }
+
+@media screen and (max-width: 980px){
+    .intro{
+    top: 38%;
+    left: 28%;
+    font-size: 200%;
+    }
+    .logo{
+    top: 20%;
+    left: 37%;
+    }
+    #board{
+    font-size: 200%;
+    }
+    .titlelogo img{
+        width:80%;
+    }
+    .gameboard{
+    font-size: 120%;
+    }
+}
+    
+@media screen and (max-width: 768px){
+    .intro{
+    top: 44%;
+    left: 38%;
+    font-size: 200%;
+    }
+    .logo{
+    top: 20%;
+    left: 48%;
+    }
+    #board{
+    font-size: 200%;
+    left: 65%;
+    font-size: 200%;
+    }
+    .titlelogo img{
+        width:60%;
+        top:50px;
+        margin-top:50px;
+    }
+    .gameboard{
+        top:30%;
+    font-size: 120%;
+    }
+    #foot{
+        position: absolute;
+        top:10px;
+    }
+    
+}
+@media screen and (max-width: 425px){
+    .intro{
+    top: 44%;
+    left: 38%;
+    width: 100%;
+    margin-left: 130px;
+    font-size: 150%;
+    }
+    .logo{
+    top: 20%;
+    left: 75%;
+    }
+    #board{
+    left: 100%;
+    font-size: 200%;
+    }
+    .titlelogo img{
+        width:100%;
+        margin-top:60px;
+    }
+    .gameboard{
+        top:50%;
+        left:50%;
+    font-size: 150%;
+    width: 100%;
+    }
+    #foot{
+        position: absolute;
+        top:10px;
+        /* padding-top: 200px; */
+    }
+    
+}

@@ -21,7 +21,7 @@ function getRandomPosition() {
 }
 
 // Array of words that are included in game
-var words = ["stormtrooper", "chewbecca", "lightsaber", "tatooine", "skywalker", "force", "yoda"]
+var words = ["stormtrooper", "chewbecca", "lightsaber", "tatooine", "skywalker", "force", "yoda", "tauntaun", "padme", "princessleia", "droid", "sandpeople", "palpatine", "wookiee", "endor", "ewoks", "jawas", "rebels", "imperial", "alderaan", "jedi", "sith", "darthvader", "lando", "ackbar", "carbonite", "galaxy", "padawan", "queenamidala", "jabbathehutt", "hoth", "naboo", "bespin", "coruscant", "yavin", "anakin", "hansolo", "bobafett", "obiwankenobi", "cantina", "blaster", "artoo", "father", "darkside", "republic", "thermaldetonator" ]
 //Chooses random word from the array
 // var randomWord = words[Math.floor(Math.random() * words.length)];
 //variables to write text to html
@@ -63,7 +63,7 @@ var blankWord;
 function start() {
     randomWord = words[Math.floor(Math.random() * words.length)];
     lettersGuessed = [];
-    numGuess = 2;
+    numGuess = 12;
     guessLeft.textContent = numGuess;
     randomArr = [];
     for (var x = 0; x < randomWord.length; x++) {
@@ -210,6 +210,7 @@ document.onkeyup = function (event) {
                     wins = 0;
                     losses = 0;
                     printWins();
+                    printLosses();
                 }
 
             }
@@ -235,6 +236,7 @@ document.onkeyup = function (event) {
                     alert("You Lose! The rebels will not be forgetten...");
                     losses = 0;
                     wins = 0;
+                    printWins();
                     printLosses();
                 }
             }
