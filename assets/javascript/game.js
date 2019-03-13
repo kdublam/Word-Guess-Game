@@ -1,7 +1,7 @@
-// Sets the number of stars we wish to display
+// Sets the number of stars to display
 const numStars = 250;
 
-// For every star we want to display
+// Loop to creat numStars on screen
 for (var i = 0; i < numStars; i++) {
     var star = document.createElement("div");
     star.className = "star";
@@ -11,7 +11,7 @@ for (var i = 0; i < numStars; i++) {
     document.body.appendChild(star);
 }
 
-// Gets random x, y values based on the size of the container
+// Function to get random x, y values based on the size of screen
 function getRandomPosition() {
     var y = window.innerWidth;
     var x = window.innerHeight;
