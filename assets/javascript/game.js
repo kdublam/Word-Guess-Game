@@ -1,7 +1,7 @@
 // Sets the number of stars to display
 const numStars = 250;
 
-// Loop to creat numStars on screen
+// Print stars in random positions on screen
 for (var i = 0; i < numStars; i++) {
     var star = document.createElement("div");
     star.className = "star";
@@ -11,7 +11,7 @@ for (var i = 0; i < numStars; i++) {
     document.body.appendChild(star);
 }
 
-// Function to get random x, y values based on the size of screen
+// Gets random x, y values based on the size of the window
 function getRandomPosition() {
     var y = window.innerWidth;
     var x = window.innerHeight;
@@ -21,10 +21,9 @@ function getRandomPosition() {
 }
 
 // Array of words that are included in game
-var words = ["stormtrooper", "chewbecca", "lightsaber", "tatooine", "skywalker", "force", "yoda", "tauntaun", "padme", "princessleia", "droid", "sandpeople", "palpatine", "wookiee", "endor", "ewoks", "jawas", "rebels", "imperial", "alderaan", "jedi", "sith", "darthvader", "lando", "ackbar", "carbonite", "galaxy", "padawan", "queenamidala", "jabbathehutt", "hoth", "naboo", "bespin", "coruscant", "yavin", "anakin", "hansolo", "bobafett", "obiwankenobi", "cantina", "blaster", "artoo", "father", "darkside", "republic", "thermaldetonator" ]
-//Chooses random word from the array
-// var randomWord = words[Math.floor(Math.random() * words.length)];
-//variables to write text to html
+var words = ["stormtrooper", "chewbecca", "lightsaber", "tatooine", "skywalker", "force", "yoda", "tauntaun", "padme", "princessleia", "droid", "sandpeople", "palpatine", "wookiee", "endor", "ewoks", "jawas", "rebels", "imperial", "alderaan", "jedi", "sith", "darthvader", "lando", "ackbar", "carbonite", "galaxy", "padawan", "queenamidala", "jabbathehutt", "hoth", "naboo", "bespin", "coruscant", "yavin", "anakin", "hansolo", "bobafett", "obiwankenobi", "cantina", "blaster", "artoo", "father", "darkside", "republic", "thermaldetonator"]
+
+//Global variables to write text to html
 var startText = document.getElementById("start_text");
 var numWin = document.getElementById("wins_text");
 var numLost = document.getElementById("lost_text")
@@ -32,10 +31,10 @@ var currentWord = document.getElementById("current_word");
 var guessLeft = document.getElementById("guess_text");
 var wrongGuess = document.getElementById("letters_guessed");
 
+//Text to display at start of the game
 startText.textContent = "Choose a letter from A-Z to begin your mission";
 
-// guessLeft.textContent = 12;
-
+//Global variables for # of guesses, wins, losses, and lettersGuessed
 var numGuess;
 var wins = 0;
 var losses = 0;
@@ -49,19 +48,18 @@ function printWins() {
 printWins();
 
 //Print the number of Losses//
-
 function printLosses() {
     numLost.textContent = "Losses: " + losses;
 }
 printLosses();
 
 //Start Game//
-
 var randomWord;
 var randomArr;
 var blankWord;
 function start() {
     randomWord = words[Math.floor(Math.random() * words.length)];
+    console.log(randomWord);
     lettersGuessed = [];
     numGuess = 12;
     guessLeft.textContent = numGuess;
@@ -70,29 +68,11 @@ function start() {
         randomArr.push(randomWord[x]);
     }
     return randomArr;
-
-
 }
 
 start();
 
-
-//Display the word in play with blank spaces
-// var blankSpace = randomWord.replace(/./g, "_ ");
-// currentWord.textContent = blankSpace;
-
 console.log(randomWord)
-
-///////////Array of the Random Word///////////
-// var randomArr = [];
-
-// function ranArray() {
-//     // for (var x = 0; x < randomWord.length; x++) {
-//     //     randomArr.push(randomWord[x]);
-//     // }
-//     // return randomArr;
-// }
-// ranArray();
 
 console.log(randomArr);
 
@@ -111,7 +91,6 @@ function printSpace() {
     currentWord.textContent = blankWord.join(" ");
 }
 
-// console.log(blankSpace());
 
 // Call the functions to print spaces on screen//
 blankSpace();
@@ -119,6 +98,8 @@ printSpace();
 
 ///////////////////////////////////////////////
 
+
+////Variables and Functions for sounds/////////
 var winMusic = document.getElementById("winmusic");
 var loseMusic = document.getElementById("losemusic");
 
@@ -165,7 +146,7 @@ function hanVoice() {
 
 
 
-// guessLeft.textContent = numGuess;
+// Variable for userGuess//
 var userGuess;
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
@@ -173,37 +154,33 @@ document.onkeyup = function (event) {
     // Determines which key was pressed.
     userGuess = event.key.toLowerCase();
 
-
+    /// Run this if A-Z is pressed and it has not been pressed already//
     if ((event.which <= 90 && event.which >= 65) && lettersGuessed.indexOf(userGuess) === -1) {
         lettersGuessed.push(userGuess);
         console.log(lettersGuessed);
         startText.textContent = "";
-
+        //Run this if the letter is in randomArr
         if (randomArr.indexOf(userGuess) > -1) {
             for (y = 0; y < randomArr.length; y++) {
                 if (randomArr[y] == userGuess) {
                     blankWord[y] = userGuess;
                     console.log(blankWord);
-                    // if (numGuess > 0 && randomArr === blankWord.join('')) {
-                    //     alert("You Win!");
-                    // }
                     correctAud()
                     printSpace();
                 }
             }
+            //Check to see if all the letter have been guessed, if so add 1 win
             if (randomArr.toString() === blankWord.toString()) {
                 wins++;
-                // alert("You Win!");
                 hanVoice();
                 printWins();
-                // randomArr = [];
-                // blankWord = [];
                 start();
                 lettersGuess = [];
                 blankWord = [];
                 blankSpace();
                 printSpace();
                 wrongGuess.textContent = "";
+                //Check to see if the user has 6 wins. If so, round is won
                 if (wins === 6) {
                     winAud();
                     alert("You Win! You have freed the rebels!");
@@ -215,13 +192,14 @@ document.onkeyup = function (event) {
 
             }
         }
+        //Run this if wrong letter guessed
         else {
             wrongGuess.textContent += userGuess + " ";
             wrongAud();
             numGuess--;
             guessLeft.textContent = numGuess;
+            //Check if number of Guess is zero
             if (numGuess === 0) {
-                // alert("You Lose!");
                 jarjarVoice();
                 losses++;
                 printLosses();
@@ -231,6 +209,7 @@ document.onkeyup = function (event) {
                 blankSpace();
                 printSpace();
                 wrongGuess.textContent = "";
+                //Check if player has 3 losses. If so, round is lost
                 if (losses === 3) {
                     loseAud();
                     alert("You Lose! The rebels will not be forgetten...");
@@ -241,53 +220,16 @@ document.onkeyup = function (event) {
                 }
             }
         }
-        // guessLeft.textContent = numGuess;
-
-        // printSpace();
-        // return blankSpace;
     }
+    //Run this if the letter has been guessed
     else if (event.which <= 90 && event.which >= 65) {
         chewyVoice();
         alert("You've tried this letter already");
     }
+    //Run this if a number is pressed
     else if (event.which >= 48 && event.which <= 57) {
         lukeVoice();
         alert("Please only chooes from A-Z");
     }
 
 }
-
-
-
-
-
-
-
-
-
-// console.log(blankSpace);
-
-// for (i = 0; i < randomWord.length; i++) {
-
-//     }
-
-// document.onkeyup = function (event) {
-//   var userinput = event.key
-//   if (userinput === "h") {
-//     car.honk();
-//   }
-//   else if (userinput === "d") {
-//     car.driveToWork();
-//     info();
-//   }
-//   else if (userinput === "w") {
-//     car.driveAroundWorld();
-//     info();
-//   }
-//   else if (userinput === "t") {
-//     car.getTuneUp();
-//     info();
-//   }
-
-// }
-
